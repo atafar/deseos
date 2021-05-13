@@ -1,0 +1,8 @@
+{
+  "name": "Deseos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "81700482"
+}
