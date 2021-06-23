@@ -34,6 +34,12 @@ export class AgregarPage implements OnInit {
     this.deseosService.guardarStorage();
   }
 
+  cambioCheck(item: ListaItem) {
+    console.log(item);
+
+    this.deseosService.guardarStorage();
+  }
+
   ngOnInit() {
   }
 

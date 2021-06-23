@@ -26,7 +26,7 @@
     </ion-list-header>
 
     <ion-item *ngFor="let item of lista.items">
-      <ion-checkbox slot="start" [(ngModel)]="item.completado"></ion-checkbox>
+      <ion-checkbox slot="start" [(ngModel)]="item.completado" (ionChange)="cambioCheck(item)"></ion-checkbox>
       <ion-label>{{item.desc}}</ion-label>
     </ion-item>
 
