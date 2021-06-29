@@ -14,7 +14,7 @@ export class DeseosService {
 
   }
 
-  crearLista( titulo: string ) {
+  crearLista(titulo: string) {
     const nuevaLista = new Lista(titulo);
     this.listas.push(nuevaLista);
     this.guardarStorage();
@@ -22,20 +22,25 @@ export class DeseosService {
     return nuevaLista.id;
   }
 
-  obtenerLista(id: string | number){
-    id = Number(id);
-    return this.listas.find( listaData => listaData.id === id);
+  borrarLista(lista: Lista) {
+    this.listas = this.listas.filter(listaData => listaData.id !== lista.id);
+    this.guardarStorage();
   }
 
-  guardarStorage(){
+  obtenerLista(id: string | number) {
+    id = Number(id);
+    return this.listas.find(listaData => listaData.id === id);
+  }
+
+  guardarStorage() {
     localStorage.setItem('data', JSON.stringify(this.listas));
   }
 
-  cargarStorage(){
+  cargarStorage() {
 
-    if( localStorage.getItem('data')){
+    if (localStorage.getItem('data')) {
       this.listas = JSON.parse(localStorage.getItem('data'));
-    }else{
+    } else {
       this.listas = [];
     }
   }
