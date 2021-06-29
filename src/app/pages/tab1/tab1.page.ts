@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Lista } from 'src/app/models/lista.model';
 import { DeseosService } from 'src/app/services/deseos.service';
+// import { DeseosService } from 'src/app/services/deseos.service';
 
 @Component({
   selector: 'app-tab1',
@@ -11,10 +12,9 @@ import { DeseosService } from 'src/app/services/deseos.service';
 })
 export class Tab1Page {
 
-
-  constructor(public deseosService: DeseosService,
-    private router: Router,
-    private alertCtrl: AlertController) {
+  constructor(private alertCtrl: AlertController,
+              private deseosService: DeseosService,
+              private router: Router) {
 
   }
 
@@ -35,7 +35,7 @@ export class Tab1Page {
           text: 'Crear',
           handler: (data) => {
             console.log(data);
-            if ( data.titulo.length === 0 ){
+            if (data.titulo.length === 0) {
               return;
             }
 
@@ -50,9 +50,5 @@ export class Tab1Page {
     alert.present();
   }
 
-  listaSeleccionada(lista: Lista){
-    console.log(lista);
-    this.router.navigateByUrl(`/tabs/tab1/agregar/${ lista.id }`);
-  }
 
 }
