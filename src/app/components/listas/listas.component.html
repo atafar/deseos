@@ -1,4 +1,4 @@
-<ion-list>
+<ion-list #mainList>
   <ion-item-sliding *ngFor="let lista of deseosService.listas">
 
     <ion-item (click)="listaSeleccionada(lista)">
